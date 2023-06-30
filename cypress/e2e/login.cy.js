@@ -1,7 +1,13 @@
 describe('login', () => {
+  let url, username, password;
+
+  before(() => {
+    url = Cypress.env('BASE_URL');
+    username = Cypress.env('USERNAME');
+    password = Cypress.env('PASSWORD');
+  });
   
   beforeEach(() => {
-    const url = Cypress.env('BASE_URL');
     cy.visit(url);
   })
   
@@ -20,8 +26,6 @@ describe('login', () => {
   
   context("Login success", () => {
     it('user should be able to login with correct credentials', () => {
-      const username = Cypress.env('USERNAME');
-      const password = Cypress.env('PASSWORD');
       cy.login(username, password);
       cy.getByData("chat-title-container").should("exist");
   })
