@@ -17,12 +17,23 @@ jobs:
         
       - name: Install dependencies
         run: npm install
-          
+
+      - name: Start the React app server
+        run: |
+          npm start &         # Start the server in the background
+          sleep 10            # Wait for the server to start (adjust sleep duration if necessary)
+        
+      - name: Wait for the app to start
+        run: |
+          npx wait-on http://localhost:${{ env.PORT || 3000 }}
+        
       - name: Cypress run
-        run: |-
-          npm start
-          npx cypress run
+        run: npx cypress run
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
+      
+      - name: Stop the React app server
+        run: |
+          kill $(ps aux | grep '[n]pm start' | awk '{print $2}')
