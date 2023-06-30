@@ -50,7 +50,7 @@ const LoginForm = () => {
               className="button"
               data-test="submit"
             >
-              <span>Start chatting</span>
+              <span data-test="submit-text">Start chatting</span>
             </button>
             <h3 className="error"
               data-test="error"

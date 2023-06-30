@@ -11,6 +11,7 @@ const ChatFeed = (props) => {
     <div
       key={`read_${index}`}
       className="read-receipt"
+      data-test="read-receipt"
       style={{
         float: isMyMessage ? 'right' : 'left',
         backgroundImage: person.person.avatar && `url(${person.person.avatar})`,
@@ -28,12 +29,13 @@ const ChatFeed = (props) => {
 
       return (
         <div key={`msg_${index}`} style={{ width: '100%' }}>
-          <div className="message-block">
+          <div className="message-block" data-test="message-block">
             {isMyMessage
               ? <MyMessage message={message} />
               : <TheirMessage message={message} lastMessage={messages[lastMessageKey]} />}
           </div>
-          <div className="read-receipts" style={{ marginRight: isMyMessage ? '18px' : '0px', marginLeft: isMyMessage ? '0px' : '68px' }}>
+          <div className="read-receipts" data-test="read-receipts"
+          style={{ marginRight: isMyMessage ? '18px' : '0px', marginLeft: isMyMessage ? '0px' : '68px' }}>
             {renderReadReceipts(message, isMyMessage)}
           </div>
         </div>
@@ -44,16 +46,16 @@ const ChatFeed = (props) => {
   if (!chat) return <div />;
 
   return (
-    <div className="chat-feed">
-      <div className="chat-title-container">
-        <div className="chat-title">{chat?.title}</div>
-        <div className="chat-subtitle">
+    <div className="chat-feed" data-test="chat-feed">
+      <div className="chat-title-container" data-test="chat-title-container">
+        <div className="chat-title" data-test="chat-title">{chat?.title}</div>
+        <div className="chat-subtitle" data-test="chat-subtitle">
           {chat.people.map((person) => ` ${person.person.username}`)}
         </div>
       </div>
       {renderMessages()}
       <div style={{ height: '100px' }} />
-      <div className="message-form-container">
+      <div className="message-form-container" data-test="message-form-container">
         <MessageForm {...props} chatId={activeChat} />
       </div>
     </div>
