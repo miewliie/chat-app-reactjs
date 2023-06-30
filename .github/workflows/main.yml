@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: npm install
           
-      - name: Cypress 
+      - name: Cypress run
         run: |-
-          wait-on: npm start
-          test: npm run e2e:test
+          start: npm start
+          test: npx cypress run
