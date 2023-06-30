@@ -20,5 +20,9 @@ jobs:
           
       - name: Cypress run
         run: |-
-          start: npm start
-          test: npx cypress run
+          npm start
+          npx cypress run
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
