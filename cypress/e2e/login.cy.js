@@ -1,14 +1,19 @@
 describe('login', () => {
-  let url, username, password;
 
   before(() => {
-    url = Cypress.env('BASE_URL');
-    username = Cypress.env('USERNAME');
-    password = Cypress.env('PASSWORD');
+    Cypress.on('before:browser:launch', (launchOptions) => {
+      const { BASE_URL, USERNAME, PASSWORD } = Cypress.env();
+
+        launchOptions.env.BASE_URL = BASE_URL;
+        launchOptions.env.USERNAME = USERNAME;
+        launchOptions.env.PASSWORD = PASSWORD;
+
+      return launchOptions;
+    });
   });
   
   beforeEach(() => {
-    cy.visit(url);
+    cy.visit(Cypress.env('BASE_URL'));
   })
   
   context("Wrong creds", () => {
@@ -26,6 +31,8 @@ describe('login', () => {
   
   context("Login success", () => {
     it('user should be able to login with correct credentials', () => {
+      const username = Cypress.env('USERNAME');
+      const password = Cypress.env('PASSWORD');
       cy.login(username, password);
       cy.getByData("chat-title-container").should("exist");
   })
