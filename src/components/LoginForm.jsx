@@ -36,17 +36,25 @@ const LoginForm = () => {
             onChange={(e) => setUsername(e.target.value)} 
             className="input" 
             placeholder="Username" 
+            data-cy="username"
             required />
           <input type="password" 
             value={password} 
             onChange={(e) => setPassword(e.target.value)} 
             className="input" 
-            placeholder="Password" required />
+            placeholder="Password" 
+            data-cy="password"
+            required />
           <div align="center">
-            <button type="submit" className="button">
+            <button type="submit" 
+              className="button"
+              data-cy="submit"
+            >
               <span>Start chatting</span>
             </button>
-            <h3 className="error">{error}</h3>
+            <h3 className="error"
+              data-cy="error"
+            >{error}</h3>
           </div>
         </form>
       </div>
