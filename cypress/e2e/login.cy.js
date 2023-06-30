@@ -1,8 +1,8 @@
-const url = Cypress.env('BASE_URL');
-const username = Cypress.env('USERNAME');
-const password = Cypress.env('PASSWORD');
-
 describe('login', () => {
+  const url = Cypress.env('BASE_URL');
+  const username = Cypress.env('USERNAME');
+  const password = Cypress.env('PASSWORD');
+
   beforeEach(() => {
     cy.visit(url);
   })
