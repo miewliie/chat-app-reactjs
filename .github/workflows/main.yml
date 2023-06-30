@@ -22,9 +22,11 @@ jobs:
         run: |
           npm start &         # Start the server in the background
           sleep 10            # Wait for the server to start (adjust sleep duration if necessary)
+        env:
+          REACT_APP_PROJECT_ID: ${{ secrets.REACT_APP_PROJECT_ID }}
      
       - name: Cypress run
-        run: npx cypress run
+        run: npm run e2e:test
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           USERNAME: ${{ secrets.USERNAME }}
