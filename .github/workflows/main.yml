@@ -28,9 +28,9 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5
         env:
-            BASE_URL: ${{ secrets.BASE_URL }}
-            USERNAME: ${{ secrets.USERNAME }}
-            PASSWORD: ${{ secrets.PASSWORD }}
+            CYPRESS_BASE_URL: ${{ secrets.BASE_URL }}
+            CYPRESS_USERNAME: ${{ secrets.USERNAME }}
+            CYPRESS_PASSWORD: ${{ secrets.PASSWORD }}
       
       - name: Stop the React app server
         run: |
