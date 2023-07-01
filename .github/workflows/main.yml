@@ -25,9 +25,10 @@ jobs:
         env:
           REACT_APP_PROJECT_ID: ${{ secrets.REACT_APP_PROJECT_ID }}
      
-      - name: Cypress run
-        run: npm run e2e:test
+      - name: e2e
+        uses: cypress-io/github-action@v2
         with:
+          test: npm run e2e:test
           env: configFile=ci
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
