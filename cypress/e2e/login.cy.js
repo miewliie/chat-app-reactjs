@@ -1,7 +1,7 @@
 describe('login', () => {
   
   beforeEach(() => {
-    cy.visit(Cypress.env('BASE_URL'));
+    cy.visit(Cypress.env('BaseUrl'));
   })
   
   context("Wrong creds", () => {
@@ -19,7 +19,7 @@ describe('login', () => {
   
   context("Login success", () => {
     it('user should be able to login with correct credentials', () => {
-    cy.login(Cypress.env('USERNAME'), Cypress.env('PASSWORD'));
+    cy.login(Cypress.env('Username'), Cypress.env('Password'));
     cy.getByData("chat-title-container").should("exist");
   })
 })
