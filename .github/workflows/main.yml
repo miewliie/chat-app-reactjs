@@ -27,6 +27,8 @@ jobs:
      
       - name: Cypress run
         uses: cypress-io/github-action@v5
+        with:
+          env: configFile=ci
         env:
             CYPRESS_BaseUrl: ${{ secrets.BASE_URL }}
             CYPRESS_Username: ${{ secrets.USERNAME }}
