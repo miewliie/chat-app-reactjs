@@ -27,6 +27,8 @@ jobs:
      
       - name: Cypress run
         run: npm run e2e:test
+        with:
+          env: configFile=ci
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           USERNAME: ${{ secrets.USERNAME }}
