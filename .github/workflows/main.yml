@@ -30,9 +30,9 @@ jobs:
         with:
           env: configFile=ci
         env:
-            CYPRESS_BaseUrl: ${{ secrets.CYPRESS_BaseUrl }}
-            CYPRESS_Username: ${{ secrets.CYPRESS_Username }}
-            CYPRESS_Password: ${{ secrets.CYPRESS_Password }}
+            CYPRESS_BASEURL: ${{ secrets.CYPRESS_BASEURL }}
+            CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
+            CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
       
       - name: Stop the React app server
         run: |
