@@ -6,9 +6,11 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
+    # Cypress Docker image with Chrome v106
+    # and Firefox v106 pre-installed
+    container: cypress/browsers:node18.12.0-chrome106-ff106
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
        
       - name: Install dependencies
         run: npm install
@@ -24,6 +26,8 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           env: configFile=ci
+          browser: chrome
+          headed: true
         env:
             CYPRESS_BASEURL: ${{ secrets.CYPRESS_BASEURL }}
             CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
