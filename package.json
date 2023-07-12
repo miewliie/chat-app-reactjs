@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "e2e:test": "npx cypress run"
+    "e2e:test": "npx cypress run --config-file cypress.json --env true"
   },
   "eslintConfig": {
     "extends": [
