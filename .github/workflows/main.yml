@@ -22,7 +22,6 @@ jobs:
           start: npm start
           browser: chrome
           headed: true
-          parallel: true
         env:
             REACT_APP_PROJECT_ID: ${{ secrets.REACT_APP_PROJECT_ID }}
             CYPRESS_BASEURL: ${{ secrets.CYPRESS_BASEURL }}
