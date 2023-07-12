@@ -28,20 +28,20 @@ jobs:
             CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
             CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
       
-      - name: Stop the React app server
-        run: |
-          kill $(ps aux | grep '[n]pm start' | awk '{print $2}')
+    - name: Stop the React app server
+      run: |
+        kill $(ps aux | grep '[n]pm start' | awk '{print $2}')
 
-      - name: Screenshots
-        uses: actions/upload-artifact@v3
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-          if-no-files-found: ignore 
+    - name: Screenshots
+      uses: actions/upload-artifact@v3
+      with:
+        name: cypress-screenshots
+        path: cypress/screenshots
+        if-no-files-found: ignore 
 
-      - name: Videos
-        uses: actions/upload-artifact@v3
-        with:
-          name: cypress-videos
-          path: cypress/videos
-          if-no-files-found: ignore 
+    - name: Videos
+      uses: actions/upload-artifact@v3
+      with:
+        name: cypress-videos
+        path: cypress/videos
+        if-no-files-found: ignore 
