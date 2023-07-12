@@ -8,6 +8,8 @@ module.exports = defineConfig({
       config.env.CYPRESS_USERNAME = process.env.CYPRESS_USERNAME,
       config.env.CYPRESS_PASSWORD = process.env.CYPRESS_PASSWORD,
       config.env.CYPRESS_BASEURL = process.env.CYPRESS_BASEURL
+
+      return config
     },
   }
 });
