@@ -16,7 +16,7 @@ describe('chat', () => {
             cy.deleteChat(`${chatTitle}`);
         })
     
-        it.only('should be able to upload image to chat', () => {
+        it('should be able to upload image to chat', () => {
             const chatTitle = 'Food community';
             cy.loginAsAdmin();
             cy.createChat(chatTitle);
