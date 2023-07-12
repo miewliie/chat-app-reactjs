@@ -19,7 +19,6 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           env: true
-          build: npm run build
           start: npm start
           browser: chrome
           headed: true
