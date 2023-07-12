@@ -4,7 +4,6 @@ import LoginForm from './components/LoginForm';
 import './App.css';
 
 function App() {
-  console.log('projectID', process.env.REACT_APP_PROJECT_ID)
   if(!localStorage.getItem('username')) return <LoginForm />
 
   return (
