@@ -14,21 +14,18 @@ jobs:
        
       - name: Install dependencies
         run: npm install
-
-      - name: Start the React app server
-        run: |
-          npm start &         # Start the server in the background
-          sleep 10            # Wait for the server to start (adjust sleep duration if necessary)
-        env:
-          REACT_APP_PROJECT_ID: ${{ secrets.REACT_APP_PROJECT_ID }}
      
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
           env: true
+          build: npm run build
+          start: npm start
           browser: chrome
           headed: true
+          record: true
         env:
+            REACT_APP_PROJECT_ID: ${{ secrets.REACT_APP_PROJECT_ID }}
             CYPRESS_BASEURL: ${{ secrets.CYPRESS_BASEURL }}
             CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
             CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
@@ -42,6 +39,7 @@ jobs:
           name: cypress-screenshots
           path: cypress/screenshots
           if-no-files-found: ignore 
+
       - uses: actions/upload-artifact@v3
         with:
           name: cypress-videos
