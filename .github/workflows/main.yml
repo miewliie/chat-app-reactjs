@@ -27,6 +27,8 @@ jobs:
             CYPRESS_BASEURL: ${{ secrets.CYPRESS_BASEURL }}
             CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
             CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
+            ADMIN: ${{ secrets.CYPRESS_ADMIN }}
+            ADMIN_PASSWORD: ${{ secrets.CYPRESS_ADMIN_PASSWORD }}
         continue-on-error: true
       
       - name: Stop the React app server
