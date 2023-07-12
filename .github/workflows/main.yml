@@ -33,13 +33,15 @@ jobs:
         run: |
           kill $(ps aux | grep '[n]pm start' | awk '{print $2}')
 
-      - uses: Screenshots
+      - name: Screenshots
+        uses: actions/upload-artifact@v3
         with:
           name: cypress-screenshots
           path: cypress/screenshots
           if-no-files-found: ignore 
 
-      - uses: Video reccorded
+      - name: Videos
+        uses: actions/upload-artifact@v3
         with:
           name: cypress-videos
           path: cypress/videos
