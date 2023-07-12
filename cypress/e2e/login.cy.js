@@ -1,7 +1,7 @@
 describe('login', () => {
   
   beforeEach(() => {
-    cy.visit(Cypress.env('CYPRESS_BASEURL'));
+    cy.visit(Cypress.env('http://localhost:3000/'));
   })
   
   context("Wrong creds", () => {
